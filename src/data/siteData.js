@@ -277,7 +277,7 @@ export const projects = [
     title: 'Stellar Heights by Jankal Group',
     location: 'Sarjapur - Attibele Road (Billapura Cross), Bengaluru',
     category: 'Residential',
-    status: 'Completed Projects',
+    status: 'Ongoing Projects',
     type: 'Luxury',
     image: '/images/projects/stellar%20heights%20by%20jankal%20group%20.jpeg',
     description:
