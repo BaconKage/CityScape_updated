@@ -34,7 +34,7 @@ export default function LoadingScreen() {
             repeatDelay: 0.12,
           }}
         >
-          CS
+          <img src="/images/cityscape-logo.png" alt="Cityscape Consulting logo" className="loading-mark-image" />
         </motion.div>
 
         <p className="loading-title">Cityscape Consulting</p>

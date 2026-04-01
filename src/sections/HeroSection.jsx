@@ -34,9 +34,13 @@ export default function HeroSection() {
               transition={{ duration: 0.7 }}
               className="max-w-3xl"
             >
-              <p className="inline-flex items-center gap-2 text-xs sm:text-sm md:text-[0.9rem] tracking-[0.22em] uppercase text-emerald-100 font-bold mb-4 sm:mb-6">
-                Cityscape Consulting
-              </p>
+              <div className="mb-5 sm:mb-7 inline-flex max-w-full items-center rounded-[1.75rem] border border-gold-100/20 bg-charcoal/55 px-3 py-3 shadow-[0_18px_60px_-32px_rgba(220,198,140,0.45)] backdrop-blur-xl">
+                <img
+                  src="/images/cityscape-logo.png"
+                  alt="Cityscape Consulting"
+                  className="h-12 w-auto sm:h-14 md:h-16"
+                />
+              </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.05] sm:leading-[0.95] text-ivory font-semibold">
                 {heroData.title}
               </h1>
