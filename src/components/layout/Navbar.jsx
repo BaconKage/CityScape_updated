@@ -22,12 +22,9 @@ export default function Navbar() {
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <a href="#home" data-interactive className="flex items-center gap-3 group">
-          <img
-            src="/images/cityscape-logo.png"
-            alt="Cityscape Consulting logo"
-            className="h-10 w-auto sm:h-11 md:h-12 drop-shadow-[0_0_20px_rgba(234,223,190,0.18)] transition-transform duration-500 group-hover:scale-[1.03]"
-          />
-          <span className="sr-only">{brand.name}</span>
+          <span className="text-lg md:text-xl font-display tracking-widest text-ivory group-hover:text-gold-100 transition-colors uppercase font-semibold">
+            {brand.name}
+          </span>
         </a>
 
         <div className="hidden lg:flex items-center gap-2 xl:gap-4">

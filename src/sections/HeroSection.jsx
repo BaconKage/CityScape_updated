@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { heroData, contactInfo } from '../data/siteData'
 import PrimaryButton from '../components/ui/PrimaryButton'
@@ -22,7 +22,7 @@ export default function HeroSection() {
           className="h-full w-full object-cover"
           fallback="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=80"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/85 via-charcoal/65 to-charcoal" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/45 to-charcoal/90" />
       </motion.div>
 
       <div className="relative isolate pt-28 md:pt-36 pb-12">
@@ -34,11 +34,11 @@ export default function HeroSection() {
               transition={{ duration: 0.7 }}
               className="max-w-3xl"
             >
-              <div className="mb-5 sm:mb-7 inline-flex max-w-full items-center rounded-[1.75rem] border border-gold-100/20 bg-charcoal/55 px-3 py-3 shadow-[0_18px_60px_-32px_rgba(220,198,140,0.45)] backdrop-blur-xl">
+              <div className="mb-6 sm:mb-8 inline-flex max-w-full items-center rounded-[2rem] border border-gold-100/35 bg-charcoal/70 px-5 py-4 shadow-[0_0_0_1px_rgba(220,198,140,0.08),0_26px_80px_-30px_rgba(220,198,140,0.6)] backdrop-blur-xl">
                 <img
                   src="/images/cityscape-logo.png"
                   alt="Cityscape Consulting"
-                  className="h-12 w-auto sm:h-14 md:h-16"
+                  className="h-16 w-auto sm:h-20 md:h-24 lg:h-28 drop-shadow-[0_0_24px_rgba(255,235,59,0.3)]"
                 />
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.05] sm:leading-[0.95] text-ivory font-semibold">
@@ -62,42 +62,24 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          <div className="relative mt-20 md:mt-24 w-full">
-            <div className="grid sm:grid-cols-3 gap-5 lg:gap-8">
-              {heroData.statCards.map((card, index) => {
-                const colors = [
-                  'bg-urbanBlue-500/10 border-urbanBlue-500/30 from-urbanBlue-500/5 to-charcoal/80',
-                  'bg-emerald-500/10 border-emerald-500/30 from-emerald-500/5 to-charcoal/80',
-                  'bg-rust-500/10 border-rust-500/30 from-rust-500/5 to-charcoal/80',
-                ]
-                const glowColors = [
-                  'bg-urbanBlue-500/30',
-                  'bg-emerald-500/30',
-                  'bg-rust-500/30',
-                ]
-                const textColors = [
-                  'text-urbanBlue-100',
-                  'text-emerald-100',
-                  'text-rust-100',
-                ]
-                return (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.15 }}
-                    key={card.label}
-                    data-levitate
-                    className={`rounded-2xl p-6 relative overflow-hidden border backdrop-blur-xl bg-gradient-to-br shadow-xl ${colors[index % colors.length]}`}
-                  >
-                    <p className="text-xs lg:text-sm uppercase tracking-wider font-semibold text-ivory/80">{card.label}</p>
-                    <p className={`mt-3 text-4xl lg:text-5xl font-display font-bold ${textColors[index % textColors.length]}`}>{card.value}</p>
-                    <p className="mt-2 text-xs lg:text-sm text-stone/80 font-medium">{card.note}</p>
-                    <div className={`absolute -bottom-8 -right-8 h-28 w-28 rounded-full blur-[40px] opacity-70 ${glowColors[index % glowColors.length]}`} />
-                  </motion.div>
-                )
-              })}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative mt-16 md:mt-20 max-w-xl"
+          >
+            <div className="rounded-[1.75rem] border border-rust-300/30 bg-[linear-gradient(135deg,rgba(88,49,34,0.78),rgba(33,20,16,0.7))] p-7 md:p-8 shadow-[0_26px_70px_-34px_rgba(132,78,49,0.75)] backdrop-blur-xl">
+              <p className="text-xs md:text-sm uppercase tracking-[0.16em] font-semibold text-stone/85">
+                Premium Mandate Execution
+              </p>
+              <p className="mt-5 text-5xl md:text-6xl font-display font-bold text-[#f0c9a6]">
+                4-5
+              </p>
+              <p className="mt-3 text-base md:text-lg text-stone/90 font-medium max-w-md">
+                mandate execution with focused ownership and boutique-level attention.
+              </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

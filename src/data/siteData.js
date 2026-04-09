@@ -11,18 +11,18 @@ export const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Projects', href: '#projects' },
   { label: 'Partners', href: '#partners' },
+  { label: 'Careers', href: '#careers' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]
 
-export const whatsappNumber = '919741581039'
+export const whatsappNumber = '919916754764'
 
 export const heroData = {
   title: 'Elevating Real Estate Visibility, Sales & Strategy',
   subtitle:
-    'Premium project representation â€¢ Faster inventory movement â€¢ Execution-driven consulting â€¢ Strong developer partnerships',
-  backgroundImage:
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539e0?auto=format&fit=crop&w=2200&q=80',
+    'Premium project representation • Faster inventory movement • Execution-driven consulting • Strong developer partnerships',
+  backgroundImage: '/images/projects/hillside_main.jpeg',
   badges: [
     'Exclusive Project Representation',
     'Premium Mandate Execution',
@@ -116,6 +116,7 @@ export const aboutData = {
     {
       name: 'Mahesh S Wadhwa',
       title: 'Partner',
+      email: 'mahesh@cityscapeconsulting.in',
       description: [
         'Strategic oversight for premium project representation.',
         'Expert in pricing discipline and high-intent buyer conversion.',
@@ -126,6 +127,7 @@ export const aboutData = {
     {
       name: 'Viju Devaiah',
       title: 'Partner',
+      email: 'vijudevaiah@cityscapeconsulting.in',
       description: [
         'Leads partner activation and accelerated inventory movement.',
         'Architects high-velocity sales systems and field playbooks.',
@@ -209,7 +211,8 @@ export const projects = [
     title: 'FortJala by Nester Homes',
     location: 'Chikkajala, Airport Road (North Bangalore), Bengaluru',
     category: 'Residential',
-    status: 'Ongoing Projects',
+    status: 'Completed Projects',
+    displayStatus: 'Sold Out',
     type: 'Luxury',
     image: '/images/projects/fortjala%20by%20nester%20homes.jpeg',
     description:
@@ -374,11 +377,26 @@ export const processSteps = [
 ]
 
 export const impactMetrics = [
-  { label: 'Projects Represented', value: 48 },
-  { label: 'Qualified Leads Generated', value: 18700 },
-  { label: 'Developer Partnerships', value: 126 },
-  { label: 'Sales Campaigns Managed', value: 63 },
-  { label: 'Investor/Buyer Connects', value: 9400 },
+  { label: 'Projects Represented', value: 5 },
+  { label: 'Qualified Leads Generated', value: 10000 },
+  { label: 'Developer Partnerships', value: 12 },
+  { label: 'Sales Campaigns Managed', value: 25 },
+  { label: 'Investor/Buyer Connects', value: 1100 },
+]
+
+export const careerOpenings = [
+  {
+    title: 'Sales Executive',
+    type: 'Full-time',
+    location: 'Bengaluru',
+    summary: 'Own project walkthroughs, buyer follow-ups, site visits, and conversion support for active mandates.',
+  },
+  {
+    title: 'Tele Marketing Executive',
+    type: 'Full-time',
+    location: 'Bengaluru',
+    summary: 'Handle outbound calling, lead qualification, follow-up discipline, and appointment generation for sales teams.',
+  },
 ]
 
 export const faqs = [
@@ -425,8 +443,8 @@ export const testimonials = [
 
 export const contactInfo = {
   address: '203 Basappa Road, Shanti Nagar, Bangalore, KA 560027, India',
-  email: 'contact@cityscapeconsulting.in',
-  phone: '+91 97415 81039',
+  email: 'connect@cityscapeconsulting.in',
+  phone: '+91 99167 54764',
   whatsapp: `https://wa.me/${whatsappNumber}`,
   googleMaps: 'https://maps.app.goo.gl/o87t3t9f6H7YFN4B7',
   mapEmbed: 'https://www.google.com/maps?q=203%20Basappa%20Road,%20Shanti%20Nagar,%20Bengaluru,%20KA%20560027&output=embed',

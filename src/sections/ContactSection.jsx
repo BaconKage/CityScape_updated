@@ -1,9 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MapPinned, Mail, MapPin, Phone, MessageCircle, Send } from 'lucide-react'
 import SectionHeader from '../components/ui/SectionHeader'
 import { contactInfo } from '../data/siteData'
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    focus: '',
+    message: '',
+  })
+
+  const updateField = (field) => (event) => {
+    setFormData((current) => ({
+      ...current,
+      [field]: event.target.value,
+    }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const lines = [
+      'Hello Cityscape Consulting,',
+      '',
+      'I would like to send an inquiry.',
+      '',
+      `Full Name: ${formData.fullName || 'Not provided'}`,
+      `Email: ${formData.email || 'Not provided'}`,
+      `Project / Partner Focus: ${formData.focus || 'Not provided'}`,
+      `Message: ${formData.message || 'Not provided'}`,
+    ]
+
+    const whatsappUrl = `${contactInfo.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+  }
+
   return (
     <section id="contact" className="section-frame py-16 md:py-24 bg-onyx/90">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -67,12 +99,14 @@ export default function ContactSection() {
             </a>
           </div>
 
-          <form className="section-surface p-6 md:p-8" data-levitate onSubmit={(e) => e.preventDefault()}>
+          <form className="section-surface p-6 md:p-8" data-levitate onSubmit={handleSubmit}>
             <div className="grid sm:grid-cols-2 gap-4">
               <label className="text-sm">
                 Full Name
                 <input
                   data-interactive
+                  value={formData.fullName}
+                  onChange={updateField('fullName')}
                   className="mt-2 w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold-100/40"
                   placeholder="Your name"
                 />
@@ -81,6 +115,8 @@ export default function ContactSection() {
                 Email
                 <input
                   data-interactive
+                  value={formData.email}
+                  onChange={updateField('email')}
                   className="mt-2 w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold-100/40"
                   placeholder="you@email.com"
                   type="email"
@@ -92,6 +128,8 @@ export default function ContactSection() {
               Project / Partner Focus
             <input
               data-interactive
+              value={formData.focus}
+              onChange={updateField('focus')}
               className="mt-2 w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold-100/40"
               placeholder="Residential / Commercial / Investment"
             />
@@ -101,6 +139,8 @@ export default function ContactSection() {
               Message
             <textarea
               data-interactive
+              value={formData.message}
+              onChange={updateField('message')}
               className="mt-2 w-full min-h-[120px] rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold-100/40"
               placeholder="Tell us about your project and objective"
             />

@@ -147,6 +147,8 @@ function ProjectGalleryModal({ project, onClose }) {
 }
 
 function ProjectCard({ project, onViewProject }) {
+  const badgeLabel = project.displayStatus ?? project.status
+
   return (
     <motion.article
       onClick={() => onViewProject(project)}
@@ -172,9 +174,11 @@ function ProjectCard({ project, onViewProject }) {
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-        <span className="absolute left-4 top-4 rounded-full bg-gold-600 text-charcoal text-xs px-3 py-1 font-semibold">
-          {project.status}
-        </span>
+        {badgeLabel ? (
+          <span className="absolute left-4 top-4 rounded-full bg-gold-600 text-charcoal text-xs px-3 py-1 font-semibold">
+            {badgeLabel}
+          </span>
+        ) : null}
       </div>
       <div className="p-5">
         <p className="text-xs uppercase text-gold-100 tracking-[0.2em]">{project.category}</p>

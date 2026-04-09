@@ -7,9 +7,9 @@ import ServicesSection from './sections/ServicesSection'
 import ProjectsSection from './sections/ProjectsSection'
 import PartnersSection from './sections/PartnersSection'
 import ProcessSection from './sections/ProcessSection'
+import CareersSection from './sections/CareersSection'
 import FAQSection from './sections/FAQSection'
 import ImpactSection from './sections/ImpactSection'
-import TestimonialsSection from './sections/TestimonialsSection'
 import ContactSection from './sections/ContactSection'
 import FooterSection from './sections/FooterSection'
 import ChatWidget from './sections/ChatWidget'
@@ -74,9 +74,9 @@ function App() {
         <ProjectsSection />
         <PartnersSection />
         <ProcessSection />
+        <CareersSection />
         <FAQSection />
         <ImpactSection />
-        <TestimonialsSection />
         <ContactSection />
       </main>
       <FooterSection />

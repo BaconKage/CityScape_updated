@@ -58,6 +58,72 @@ export default function ScrollExperience() {
     }
   }, [sectionOffsets])
 
+  useEffect(() => {
+    const media = window.matchMedia('(pointer: fine)')
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    if (!media.matches || reduceMotion.matches) return
+
+    const elements = Array.from(document.querySelectorAll(':is([data-levitate], .section-surface, .glass)'))
+    if (!elements.length) return
+
+    const cleanupFns = []
+
+    elements.forEach((element) => {
+      let frameId = null
+
+      const reset = () => {
+        element.style.setProperty('--tilt-x', '0deg')
+        element.style.setProperty('--tilt-y', '0deg')
+        element.style.setProperty('--shift-x', '0px')
+        element.style.setProperty('--shift-y', '0px')
+        element.style.setProperty('--glow-x', '50%')
+        element.style.setProperty('--glow-y', '50%')
+      }
+
+      const update = (event) => {
+        if (frameId) cancelAnimationFrame(frameId)
+
+        frameId = requestAnimationFrame(() => {
+          const rect = element.getBoundingClientRect()
+          const px = (event.clientX - rect.left) / rect.width
+          const py = (event.clientY - rect.top) / rect.height
+          const rotateY = (px - 0.5) * 12
+          const rotateX = (0.5 - py) * 10
+          const shiftX = (px - 0.5) * 10
+          const shiftY = (py - 0.5) * 8
+
+          element.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`)
+          element.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`)
+          element.style.setProperty('--shift-x', `${shiftX.toFixed(2)}px`)
+          element.style.setProperty('--shift-y', `${shiftY.toFixed(2)}px`)
+          element.style.setProperty('--glow-x', `${(px * 100).toFixed(1)}%`)
+          element.style.setProperty('--glow-y', `${(py * 100).toFixed(1)}%`)
+        })
+      }
+
+      const handleLeave = () => {
+        if (frameId) cancelAnimationFrame(frameId)
+        reset()
+      }
+
+      reset()
+      element.addEventListener('pointermove', update)
+      element.addEventListener('pointerleave', handleLeave)
+
+      cleanupFns.push(() => {
+        if (frameId) cancelAnimationFrame(frameId)
+        element.removeEventListener('pointermove', update)
+        element.removeEventListener('pointerleave', handleLeave)
+        reset()
+      })
+    })
+
+    return () => {
+      cleanupFns.forEach((cleanup) => cleanup())
+    }
+  }, [])
+
   return (
     <>
       <div className="fixed inset-x-0 top-0 z-50 pointer-events-none scroll-track-wrap">
