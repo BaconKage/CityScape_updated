@@ -53,7 +53,7 @@ export default function ServicesSection() {
                 data-levitate
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 250, damping: 22 }}
-                className={`group section-surface border bg-gradient-to-br ${activeColor} p-5 md:p-6 transition-all duration-300 hover:scale-[1.02] shadow-lg`}
+                className={`group section-surface card-depth-strong border bg-gradient-to-br ${activeColor} p-5 md:p-6 transition-all duration-300 hover:scale-[1.02] shadow-lg`}
                 style={{ transitionDelay: `${idx * 50}ms` }}
               >
                 <div className="flex items-start justify-between">

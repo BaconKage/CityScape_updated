@@ -71,6 +71,9 @@ export default function ScrollExperience() {
 
     elements.forEach((element) => {
       let frameId = null
+      let animationFrame = null
+      const current = { rotateX: 0, rotateY: 0, shiftX: 0, shiftY: 0, glowX: 50, glowY: 50 }
+      const target = { rotateX: 0, rotateY: 0, shiftX: 0, shiftY: 0, glowX: 50, glowY: 50 }
 
       const reset = () => {
         element.style.setProperty('--tilt-x', '0deg')
@@ -81,6 +84,44 @@ export default function ScrollExperience() {
         element.style.setProperty('--glow-y', '50%')
       }
 
+      const animate = () => {
+        const easing = 0.14
+
+        current.rotateX += (target.rotateX - current.rotateX) * easing
+        current.rotateY += (target.rotateY - current.rotateY) * easing
+        current.shiftX += (target.shiftX - current.shiftX) * easing
+        current.shiftY += (target.shiftY - current.shiftY) * easing
+        current.glowX += (target.glowX - current.glowX) * easing
+        current.glowY += (target.glowY - current.glowY) * easing
+
+        element.style.setProperty('--tilt-x', `${current.rotateX.toFixed(2)}deg`)
+        element.style.setProperty('--tilt-y', `${current.rotateY.toFixed(2)}deg`)
+        element.style.setProperty('--shift-x', `${current.shiftX.toFixed(2)}px`)
+        element.style.setProperty('--shift-y', `${current.shiftY.toFixed(2)}px`)
+        element.style.setProperty('--glow-x', `${current.glowX.toFixed(1)}%`)
+        element.style.setProperty('--glow-y', `${current.glowY.toFixed(1)}%`)
+
+        const isMoving =
+          Math.abs(target.rotateX - current.rotateX) > 0.02 ||
+          Math.abs(target.rotateY - current.rotateY) > 0.02 ||
+          Math.abs(target.shiftX - current.shiftX) > 0.02 ||
+          Math.abs(target.shiftY - current.shiftY) > 0.02 ||
+          Math.abs(target.glowX - current.glowX) > 0.05 ||
+          Math.abs(target.glowY - current.glowY) > 0.05
+
+        if (isMoving) {
+          animationFrame = requestAnimationFrame(animate)
+        } else {
+          animationFrame = null
+        }
+      }
+
+      const startAnimation = () => {
+        if (!animationFrame) {
+          animationFrame = requestAnimationFrame(animate)
+        }
+      }
+
       const update = (event) => {
         if (frameId) cancelAnimationFrame(frameId)
 
@@ -88,23 +129,28 @@ export default function ScrollExperience() {
           const rect = element.getBoundingClientRect()
           const px = (event.clientX - rect.left) / rect.width
           const py = (event.clientY - rect.top) / rect.height
-          const rotateY = (px - 0.5) * 12
-          const rotateX = (0.5 - py) * 10
-          const shiftX = (px - 0.5) * 10
-          const shiftY = (py - 0.5) * 8
 
-          element.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`)
-          element.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`)
-          element.style.setProperty('--shift-x', `${shiftX.toFixed(2)}px`)
-          element.style.setProperty('--shift-y', `${shiftY.toFixed(2)}px`)
-          element.style.setProperty('--glow-x', `${(px * 100).toFixed(1)}%`)
-          element.style.setProperty('--glow-y', `${(py * 100).toFixed(1)}%`)
+          target.rotateY = (px - 0.5) * 12
+          target.rotateX = (0.5 - py) * 10
+          target.shiftX = (px - 0.5) * 10
+          target.shiftY = (py - 0.5) * 8
+          target.glowX = px * 100
+          target.glowY = py * 100
+
+          startAnimation()
         })
       }
 
       const handleLeave = () => {
         if (frameId) cancelAnimationFrame(frameId)
-        reset()
+
+        target.rotateX = 0
+        target.rotateY = 0
+        target.shiftX = 0
+        target.shiftY = 0
+        target.glowX = 50
+        target.glowY = 50
+        startAnimation()
       }
 
       reset()
@@ -113,6 +159,7 @@ export default function ScrollExperience() {
 
       cleanupFns.push(() => {
         if (frameId) cancelAnimationFrame(frameId)
+        if (animationFrame) cancelAnimationFrame(animationFrame)
         element.removeEventListener('pointermove', update)
         element.removeEventListener('pointerleave', handleLeave)
         reset()

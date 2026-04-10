@@ -29,7 +29,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="section-surface p-6 md:p-8"
+            className="section-surface card-depth-strong p-6 md:p-8"
             data-levitate
           >
             <p className="text-sm uppercase tracking-[0.24em] text-gold-100">Cityscape in 40 seconds</p>
@@ -47,6 +47,7 @@ export default function AboutSection() {
                 <p
                   key={item}
                   className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-stone/82"
+                  data-levitate
                 >
                   {item}
                 </p>
@@ -60,7 +61,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="section-surface relative min-h-[320px] overflow-hidden"
+            className="section-surface card-depth-strong relative min-h-[320px] overflow-hidden"
           >
             <AdaptiveImage
               src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=80"
@@ -85,7 +86,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="section-surface p-6 md:p-8"
+            className="section-surface card-depth-strong p-6 md:p-8"
             data-levitate
           >
             <p className="text-sm uppercase tracking-[0.24em] text-gold-100">Execution Framework</p>
@@ -95,6 +96,7 @@ export default function AboutSection() {
                 <div
                   key={model.title}
                   className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm md:text-base text-stone/82"
+                  data-levitate
                 >
                   <p className="font-medium text-white">{model.title}</p>
                   <p className="mt-1">{model.points[0]}</p>
@@ -108,7 +110,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.08 }}
-            className="section-surface p-6 md:p-8"
+            className="section-surface card-depth-strong p-6 md:p-8"
             data-levitate
           >
             <p className="text-sm uppercase tracking-[0.24em] text-gold-100">Lead Engine</p>
@@ -119,6 +121,7 @@ export default function AboutSection() {
                 <div
                   key={item}
                   className="rounded-lg border border-white/10 bg-gradient-to-r from-urbanBlue-500/10 to-transparent px-4 py-3 text-sm"
+                  data-levitate
                 >
                   <span className="text-gold-100">-</span> {item}
                 </div>
@@ -131,7 +134,7 @@ export default function AboutSection() {
           {aboutData.highlights.map((item) => {
             const Icon = iconMap[item.icon] || ShieldCheck
             return (
-              <div key={item.title} data-interactive data-levitate className="section-surface p-5">
+              <div key={item.title} data-interactive data-levitate className="section-surface card-depth-strong p-5">
                 <div className="flex items-start gap-3">
                   <div className="h-10 w-10 rounded-xl border border-gold-100/30 bg-gold-100/10 grid place-items-center text-gold-100">
                     <Icon size={20} />
@@ -153,7 +156,7 @@ export default function AboutSection() {
               href={person.profile}
               target="_blank"
               rel="noreferrer"
-              className="section-surface p-6 flex items-start justify-between gap-4 hover:border-gold-100/45 transition-all"
+              className="section-surface card-depth-strong p-6 flex items-start justify-between gap-4 hover:border-gold-100/45 transition-all"
               data-levitate
             >
               <div>

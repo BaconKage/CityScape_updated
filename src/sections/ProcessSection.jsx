@@ -50,7 +50,7 @@ export default function ProcessSection() {
                   data-interactive
                   data-levitate
                   whileTap={{ scale: 0.985 }}
-                  className={`section-surface p-5 md:p-6 relative overflow-hidden border bg-gradient-to-br shadow-lg ${bgColors[index % bgColors.length]}`}
+                  className={`section-surface card-depth-strong p-5 md:p-6 relative overflow-hidden border bg-gradient-to-br shadow-lg ${bgColors[index % bgColors.length]}`}
                 >
                   <div className={`absolute -top-3 right-4 text-7xl font-display font-bold select-none ${numColors[index % numColors.length]}`}>
                     {String(index + 1).padStart(2, '0')}

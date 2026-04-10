@@ -208,6 +208,30 @@ export const projectFilters = [
 
 export const projects = [
   {
+    title: 'BRR North Excellency',
+    location: 'Thanisandra Main Road, North Bangalore',
+    category: 'Residential',
+    status: 'Ongoing Projects',
+    type: 'Luxury',
+    image: '/images/projects/BRR%20north%20main.png',
+    description:
+      'A premium residential address offering well-designed 2 and 3 BHK homes with strong connectivity, natural light, and a peaceful gated community experience.',
+    configuration: '2 & 3 BHK',
+    unitSize: '1230 - 1749 sq.ft',
+    towers: '2B + G + 6 Floors',
+    totalLand: '1.35 Acres',
+    highlights: [
+      'RERA approved and BBMP approved project.',
+      'Temperature-controlled swimming pool, clubhouse, indoor games, and EV charging.',
+      'Vaastu-compliant homes with strong ventilation and family-focused amenities.',
+    ],
+    gallery: [
+      '/images/projects/BRR%20north%20main.png',
+      '/images/projects/brr%20north%201.png',
+      '/images/projects/brr%20north%202.png',
+    ],
+  },
+  {
     title: 'FortJala by Nester Homes',
     location: 'Chikkajala, Airport Road (North Bangalore), Bengaluru',
     category: 'Residential',
@@ -308,7 +332,7 @@ export const partners = [
     name: 'Wilderwood',
     label: 'WD',
     logo: '/partner-logos/wilderwood.png',
-    website: 'https://wilderwood.co.in/',
+    website: 'https://wilderwoodbyreozone.com/',
   },
   {
     name: 'Jankal Group',
@@ -334,6 +358,13 @@ export const partners = [
     name: 'Futurearth Group',
     label: 'FG',
     logo: '/partner-logos/futurearth%20group.png',
+  },
+  {
+    name: 'BRR North Excellency',
+    label: 'BR',
+    logo: '/partner-logos/brr-north-excellency.png',
+    website: 'https://brrnorthexcellency.in',
+    logoOnWhite: true,
   },
   {
     name: 'Fortjala',
@@ -458,7 +489,7 @@ export const socialLinks = [
   },
   {
     platform: 'Facebook',
-    url: 'https://www.facebook.com/ourcityscapeconsulting',
+    url: 'https://www.facebook.com/ourcityscapeconsulting/',
     icon: 'Facebook',
   },
   {
@@ -473,7 +504,7 @@ export const socialLinks = [
   },
   {
     platform: 'YouTube',
-    url: 'https://www.youtube.com/channel/UC6jRiH13t4qnvkUYKWaJEeA',
+    url: 'https://www.youtube.com/@CityscapeConsulting',
     icon: 'Youtube',
   },
 ]

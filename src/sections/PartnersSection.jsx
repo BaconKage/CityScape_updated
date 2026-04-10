@@ -10,15 +10,17 @@ function LogoPill({ partner }) {
   return (
     <div className="flex items-center justify-center w-full h-full relative group">
       {!showFallback && (
-        <img
-          src={partner.logo}
-          alt={partner.name}
-          onError={() => setShowFallback(true)}
-          onLoad={() => setShowFallback(false)}
-          className="h-10 md:h-14 max-w-[140px] md:max-w-[180px] object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
-          loading="lazy"
-          data-partner-logo
-        />
+        <div className={partner.logoOnWhite ? 'rounded-2xl bg-white px-5 py-3 shadow-[0_14px_30px_-20px_rgba(255,255,255,0.45)]' : ''}>
+          <img
+            src={partner.logo}
+            alt={partner.name}
+            onError={() => setShowFallback(true)}
+            onLoad={() => setShowFallback(false)}
+            className="h-10 md:h-14 max-w-[140px] md:max-w-[180px] object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+            data-partner-logo
+          />
+        </div>
       )}
       {showFallback && (
         <span className="text-lg md:text-xl font-bold tracking-widest text-white/80">

@@ -34,13 +34,28 @@ export default function HeroSection() {
               transition={{ duration: 0.7 }}
               className="max-w-3xl"
             >
-              <div className="mb-6 sm:mb-8 inline-flex max-w-full items-center rounded-[2rem] border border-gold-100/35 bg-charcoal/70 px-5 py-4 shadow-[0_0_0_1px_rgba(220,198,140,0.08),0_26px_80px_-30px_rgba(220,198,140,0.6)] backdrop-blur-xl">
+              <motion.div
+                className="hero-logo-shell mb-6 sm:mb-8 inline-flex max-w-full items-center rounded-[2rem] border border-white/10 bg-charcoal/50 px-3 py-3 shadow-[0_22px_60px_-34px_rgba(0,0,0,0.8)] backdrop-blur-xl"
+                initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                animate={{
+                  opacity: 1,
+                  y: [0, -7, 0],
+                  rotate: [0, -0.4, 0.4, 0],
+                  scale: [1, 1.008, 1],
+                }}
+                transition={{
+                  opacity: { duration: 0.7, ease: 'easeOut' },
+                  y: { duration: 6.2, repeat: Infinity, ease: 'easeInOut' },
+                  rotate: { duration: 7.2, repeat: Infinity, ease: 'easeInOut' },
+                  scale: { duration: 6.2, repeat: Infinity, ease: 'easeInOut' },
+                }}
+              >
                 <img
-                  src="/images/cityscape-logo.png"
+                  src="/images/cityscape-logo-original.png"
                   alt="Cityscape Consulting"
-                  className="h-16 w-auto sm:h-20 md:h-24 lg:h-28 drop-shadow-[0_0_24px_rgba(255,235,59,0.3)]"
+                  className="hero-logo-image h-auto w-[240px] sm:w-[310px] md:w-[380px] lg:w-[420px] rounded-[1.4rem] shadow-[0_18px_40px_-20px_rgba(0,0,0,0.65)]"
                 />
-              </div>
+              </motion.div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.05] sm:leading-[0.95] text-ivory font-semibold">
                 {heroData.title}
               </h1>

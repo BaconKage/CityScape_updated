@@ -92,6 +92,13 @@ h4 {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
+:is([data-levitate], .section-surface, .glass).card-depth-strong:hover {
+  transform: perspective(1400px) translate3d(calc(var(--shift-x) * 1.15), calc(-14px - var(--shift-y)), 0)
+    rotateX(calc(var(--tilt-x) * 1.08)) rotateY(calc(var(--tilt-y) * 1.08)) scale3d(1.02, 1.02, 1.02);
+  box-shadow: 0 40px 90px -38px rgba(0, 0, 0, 0.96), 0 24px 62px -34px rgba(220, 198, 140, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
 :is([data-levitate], .section-surface, .glass)[data-interactive]:hover {
   box-shadow: 0 38px 76px -36px rgba(0, 0, 0, 0.94), 0 22px 54px -34px rgba(220, 198, 140, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -202,15 +209,11 @@ h4 {
 }
 
 .loading-mark-image {
-  @apply h-20 w-auto md:h-24 drop-shadow-[0_0_24px_rgba(220,198,140,0.35)];
-}
-
-.loading-title {
-  @apply mt-5 text-2xl md:text-3xl font-display;
+  @apply h-auto w-[260px] sm:w-[300px] md:w-[360px] rounded-[1.4rem] shadow-[0_22px_50px_-24px_rgba(0,0,0,0.72)];
 }
 
 .loading-subtitle {
-  @apply mt-2 text-xs md:text-sm text-stone/70 tracking-[0.2em] uppercase;
+  @apply mt-5 text-xs md:text-sm text-stone/70 tracking-[0.2em] uppercase;
 }
 
 .loading-bars {
@@ -220,6 +223,37 @@ h4 {
 .loading-bar {
   @apply h-full w-[4px] rounded-full bg-gradient-to-t from-gold-100/90 via-gold-100/60 to-white/80 opacity-80;
   transform-origin: bottom;
+}
+
+.hero-logo-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-logo-shell::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(115deg, transparent 18%, rgba(255, 255, 255, 0.2) 34%, transparent 52%);
+  transform: translateX(-140%) skewX(-16deg);
+  animation: hero-logo-sheen 7.5s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.hero-logo-image {
+  transform: translateZ(0);
+}
+
+@keyframes hero-logo-sheen {
+  0%,
+  68%,
+  100% {
+    transform: translateX(-140%) skewX(-16deg);
+  }
+  82% {
+    transform: translateX(132%) skewX(-16deg);
+  }
 }
 
 @media (max-width: 640px) {
@@ -293,7 +327,8 @@ h4 {
   }
 
   .loading-bar,
-  .loading-mark {
+  .loading-mark,
+  .hero-logo-shell::after {
     animation: none !important;
     transition-duration: 0.001ms !important;
   }
