@@ -21,7 +21,7 @@ export const whatsappNumber = '919916754764'
 export const heroData = {
   title: 'Elevating Real Estate Visibility, Sales & Strategy',
   subtitle:
-    'Premium project representation • Faster inventory movement • Execution-driven consulting • Strong developer partnerships',
+    'Premium project representation | Faster inventory movement | Execution-driven consulting | Strong developer partnerships',
   backgroundImage: '/images/projects/hillside_main.jpeg',
   badges: [
     'Exclusive Project Representation',
@@ -582,6 +582,7 @@ export const chatFAQ = [
     showContact: true,
   },
 ]
+
 
 
 
