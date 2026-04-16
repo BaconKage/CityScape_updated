@@ -475,12 +475,14 @@ export const testimonials = [
 ]
 
 export const contactInfo = {
-  address: '203 Basappa Road, Shanti Nagar, Bangalore, KA 560027, India',
+  address: '203, Basappa Rd, Bheemanna Garden, KSRTC Colony, Shanti Nagar, Bengaluru, Karnataka 560027',
   email: 'connect@cityscapeconsulting.in',
   phone: '+91 99167 54764',
   whatsapp: `https://wa.me/${whatsappNumber}`,
-  googleMaps: 'https://maps.app.goo.gl/o87t3t9f6H7YFN4B7',
-  mapEmbed: 'https://www.google.com/maps?q=203%20Basappa%20Road,%20Shanti%20Nagar,%20Bengaluru,%20KA%20560027&output=embed',
+  googleMaps:
+    'https://www.google.com/maps/search/?api=1&query=203%2C%20Basappa%20Rd%2C%20Bheemanna%20Garden%2C%20KSRTC%20Colony%2C%20Shanti%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560027',
+  mapEmbed:
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8081.716662471408!2d77.59649058265438!3d12.958401298821238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15d1cb614ea5%3A0x6e61e281f2e20367!2s203%2C%20Basappa%20Rd%2C%20Bheemanna%20Garden%2C%20KSRTC%20Colony%2C%20Shanti%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560027!5e0!3m2!1sen!2sin!4v1776343679295!5m2!1sen!2sin',
 }
 
 export const socialLinks = [
