@@ -234,11 +234,11 @@ h4 {
   content: '';
   position: absolute;
   inset: -20%;
-  background: linear-gradient(115deg, transparent 18%, rgba(255, 255, 255, 0.2) 34%, transparent 52%);
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.14) 36%, transparent 54%);
   transform: translateX(-140%) skewX(-16deg);
-  animation: hero-logo-sheen 7.5s ease-in-out infinite;
+  animation: hero-logo-sheen 10s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 
 .hero-logo-image {
@@ -247,11 +247,11 @@ h4 {
 
 @keyframes hero-logo-sheen {
   0%,
-  68%,
+  74%,
   100% {
     transform: translateX(-140%) skewX(-16deg);
   }
-  82% {
+  86% {
     transform: translateX(132%) skewX(-16deg);
   }
 }

@@ -22,9 +22,11 @@ export default function Navbar() {
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <a href="#home" data-interactive className="flex items-center gap-3 group">
-          <span className="text-lg md:text-xl font-display tracking-widest text-ivory group-hover:text-gold-100 transition-colors uppercase font-semibold">
-            {brand.name}
-          </span>
+          <img
+            src="/images/cityscape-logo-original.png"
+            alt={brand.name}
+            className="h-9 w-auto sm:h-10 md:h-11 rounded-xl shadow-[0_12px_28px_-18px_rgba(255,234,0,0.45)] transition-transform duration-300 group-hover:scale-[1.03]"
+          />
         </a>
 
         <div className="hidden lg:flex items-center gap-2 xl:gap-4">

@@ -343,6 +343,7 @@ export const partners = [
     name: 'Solaris',
     label: 'SL',
     logo: '/partner-logos/stellar%20%20heights.png',
+    website: 'https://stellarheightsbyjankal.com',
   },
   {
     name: 'Nester',
@@ -353,6 +354,7 @@ export const partners = [
     name: 'Hillside Harmony',
     label: 'HH',
     logo: '/partner-logos/hillside%20harmony.png',
+    website: 'https://hillsideharmony.in',
   },
   {
     name: 'Futurearth Group',
